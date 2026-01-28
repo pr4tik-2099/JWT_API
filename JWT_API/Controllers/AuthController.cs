@@ -79,6 +79,7 @@ namespace JWT_API.Controllers
             return new JwtSecurityTokenHandler().WriteToken(tokenDeceptor);
         }
 
+        //Checking Authorization of JWT Token
         [HttpGet("Auth-point")]
         [Authorize]
         public async Task<ActionResult> AuthCheck()
