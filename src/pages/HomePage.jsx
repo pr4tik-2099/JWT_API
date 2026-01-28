@@ -53,7 +53,7 @@ const HomePage = () => {
                             </tr>
                         </thead>
                         <tbody className='text-white divide-y w-full'>
-                            {studentdata?.map((data, index) => {
+                            {studentdata.map((data, index) => {
                                 return (
                                     <tr className='hover:bg-gray-700 w-full hover:text-green-400' key={index}>
                                         <td className="px-4 py-3 border">{data.rollNo}</td>
