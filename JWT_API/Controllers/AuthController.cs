@@ -63,6 +63,7 @@ namespace JWT_API.Controllers
         }
 
 
+
         //method to create JWT token
         private string CreateToken(User user)
         {
