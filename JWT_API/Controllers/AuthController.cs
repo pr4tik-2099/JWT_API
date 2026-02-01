@@ -21,6 +21,8 @@ namespace JWT_API.Controllers
         private readonly StudentDbContext context;
         private readonly IConfiguration config;
 
+
+        //implementing dependency injection for AuthService and IConfiguration
         public AuthController(IConfiguration config,StudentDbContext context)
         {
            // this.services = service;
@@ -60,6 +62,8 @@ namespace JWT_API.Controllers
             return Ok(new {Token=token});
         }
 
+
+        //method to create JWT token
         private string CreateToken(User user)
         {
             var claims = new List<Claim>
@@ -79,6 +83,7 @@ namespace JWT_API.Controllers
             return new JwtSecurityTokenHandler().WriteToken(tokenDeceptor);
         }
 
+        //protected route to check token validity
         [HttpGet("Auth-point")]
         [Authorize]
         public async Task<ActionResult> AuthCheck()
