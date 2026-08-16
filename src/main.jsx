@@ -6,6 +6,8 @@ import {Route,BrowserRouter,Routes,Router,RouterProvider, createBrowserRouter, c
 import Login from './pages/Login.jsx'
 import { Register } from './pages/Register.jsx'
 import HomePage from './pages/HomePage.jsx'
+import UserDetails from './pages/UserDetails.jsx'
+import User from './pages/User.jsx'
 
 
 const router = createBrowserRouter(
@@ -14,6 +16,8 @@ const router = createBrowserRouter(
       <Route path='' element={<HomePage/>}/>
       <Route path='login' element={<Login/>}/>
       <Route path='register' element={<Register/>}/>
+      <Route path='UserDetails' element={<UserDetails/>}/>
+      <Route path='User/:userName' element={<User/>}/>
     </Route>
 ))
 createRoot(document.getElementById('root')).render(

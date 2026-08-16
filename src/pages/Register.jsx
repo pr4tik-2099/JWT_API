@@ -28,15 +28,15 @@ export const Register = () => {
             console.log("form is empty");
         }
         else {
-            
+
             try {
                 const res = await axios.post("https://localhost:44380/api/Auth/register",
                     { userName, password }
                 ).then((res) => {
                     console.log(res);
-                    sessionStorage.setItem('username',userName);
+                    sessionStorage.setItem('username', userName);
                     return res.json();
-                    
+
                 })
                 alert("success");
                 navigate("/login");
@@ -45,13 +45,71 @@ export const Register = () => {
                 console.log("Invalid username or password", err);
             }
         }
-       
+
 
     }
     return (
 
         <>
-            <div className='mt-24 w-full flex items-center justify-center'>
+
+            <div className="min-h-screen w-full flex items-center justify-center bg-slate-950 p-4 text-slate-100">
+                <form
+                    onSubmit={handleLogin}
+                    className="w-full max-w-md border border-slate-800 p-8 rounded-2xl shadow-xl shadow-cyan-950/20 backdrop-blur-sm"
+                >
+                    <div className="mb-8 text-center">
+                        <h1 className="font-extrabold text-3xl tracking-wide text-transparent bg-clip-text bg-linear-to-r from-emerald-400 to-cyan-400">
+                            REGISTER
+                        </h1>
+                        <p className="text-slate-400 text-sm mt-1">Create your account to get started</p>
+                    </div>
+
+                    <div className="space-y-5">
+                        <div className="mt-13">
+                            <Label
+                                htmlFor="Username"
+                                className="block mb-2 text-md font-medium text-cyan-300"
+                            >
+                                Username
+                            </Label>
+                            <Input
+                                id="Username"
+                                type="text"
+                                placeholder="Enter username"
+                                value={userName}
+                                onChange={(event) => setUserName(event.target.value)}
+                                className="w-full bg-slate-800/80 border-slate-700 text-slate-100 placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 rounded-lg p-5"
+                            />
+                        </div>
+
+                        <div className="mt-8">
+                            <Label
+                                htmlFor="Password"
+                                className="block mb-2 text-md font-medium text-cyan-300"
+                            >
+                                Password
+                            </Label>
+                            <Input
+                                id="Password"
+                                type="password"
+                                placeholder="••••••••"
+                                value={password}
+                                onChange={(event) => setPassword(event.target.value)}
+                                className="w-full bg-slate-800/80 border-slate-700 text-slate-100 placeholder:text-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 rounded-lg p-5"
+                            />
+                        </div>
+                    </div>
+
+                    <Button
+                        type="submit"
+                        size="lg"
+                        className="w-full mt-12 bg-emerald-500 hover:bg-green-400 text-slate-950 font-bold text-base transition-colors duration-200 shadow-lg shadow-emerald-500/20"
+                    >
+                        Submit
+                    </Button>
+                </form>
+            </div>
+            {/* <div className='mt-24 w-full flex items-center justify-center'>
                 <form onSubmit={handleLogin} className='border-2 p-15 rounded-2xl'>
                     <h1 className='font-extrabold text-3xl mb-20 text-purple-600 -mt-2.5 underline'>REGISTER</h1>
                     <div className='w-80'>
@@ -74,7 +132,7 @@ export const Register = () => {
                         <Button type='submit' variant='outline' className='mt-20 text-green-400 font-semibold text-lg' size='lg'>Submit</Button>
                     </div>
                 </form>
-            </div>
+            </div> */}
         </>
     )
 }

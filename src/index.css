@@ -206,6 +206,8 @@ button:focus-visible {
 
   --sidebar-foreground: oklch(0.129 0.042 264.695);
 
+  --secondary-foreground: var(--secondary-foreground);
+
   --sidebar-primary: oklch(0.208 0.042 265.755);
 
   --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
@@ -283,6 +285,52 @@ button:focus-visible {
 
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 0.85s ease-out both;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.9s ease-out both;
+  }
+
+  .animate-text-glow {
+    animation: text-glow 2.8s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes text-glow {
+  from {
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.35);
+  }
+  to {
+    text-shadow: 0 0 24px rgba(56, 189, 248, 0.7);
+  }
+}
+
 
 @layer base {
   * {
